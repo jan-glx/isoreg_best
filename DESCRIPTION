@@ -1,0 +1,16 @@
+Package: Best1990
+Type: Package
+Title: Provides a fast c++ implementation for isotonic regression
+Version: 1.0
+Date: 2016-11-28
+Author: Jan Gleixner
+Maintainer: Jan Gleixner <jan.gleixner+cran@gmail.com>
+Description: See \link{isoreg_Best_1990} for details.
+License: MIT + file LICENSE
+Imports:
+    Rcpp (>= 0.12.7)
+LinkingTo: Rcpp
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
+SystemRequirements: C++11
