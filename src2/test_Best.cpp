@@ -1,7 +1,7 @@
 //
 // Created by jan on 2016-11-28.
 //
-#include "Best1990.h"
+#include "../src/Best1990.h"
 #include <iostream>
 #include <c++/vector>
 #include <c++/iterator>

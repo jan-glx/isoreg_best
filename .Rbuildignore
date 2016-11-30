@@ -5,3 +5,5 @@
 ^NEWS\.md$
 ^\.travis\.yml$
 ^src2$
+^\.idea$
+^CMakeLists\.txt$

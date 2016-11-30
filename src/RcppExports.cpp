@@ -16,3 +16,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rank_in_cpp
+IntegerVector rank_in_cpp(NumericMatrix const X, NumericMatrix const Q, long int const nsw);
+RcppExport SEXP Best1990_rank_in_cpp(SEXP XSEXP, SEXP QSEXP, SEXP nswSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix const >::type X(XSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix const >::type Q(QSEXP);
+    Rcpp::traits::input_parameter< long int const >::type nsw(nswSEXP);
+    rcpp_result_gen = Rcpp::wrap(rank_in_cpp(X, Q, nsw));
+    return rcpp_result_gen;
+END_RCPP
+}

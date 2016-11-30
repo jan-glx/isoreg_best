@@ -21,3 +21,16 @@ isoreg_Best_1990_cpp <- function(y) {
     .Call('Best1990_isoreg_Best_1990_cpp', PACKAGE = 'Best1990', y)
 }
 
+#' Needs text
+#'
+#' sfg
+#'
+#' @importFrom Rcpp evalCpp
+#' @param X target values.
+#' @param Q target values.
+#' @return fitted values.
+#' @export
+rank_in_cpp <- function(X, Q, nsw = 400L) {
+    .Call('Best1990_rank_in_cpp', PACKAGE = 'Best1990', X, Q, nsw)
+}
+

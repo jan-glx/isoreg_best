@@ -55,3 +55,42 @@ isoreg_Best_1990_R <- function(y) {
   }
   yf <- rep(avgB(seq_len(length(J)-1)), J[-1]-J[-length(J)])
 }
+
+
+
+#' PatraBound
+#'
+#' Compute the isotonic (monotonely increasing nonparametric) least squares regression which is piecewise constant.
+#'
+#' @param x abscissa values (\code{x}) if \code{y} is supplied else target values.
+#' @param implementation a character string specifying if the fast C++ or an equivalent R implementation should be used.
+#' @return numeric vector of fitted values (\code{yf}).
+#' @details If abscissa values are supplied the "primary" tie method is performed \eqn{(y_i<y_j \imply yf_i<yf_j)}.
+#' @examples
+#' y <- c(1, 3, 2, 4)
+#' isoreg_Best_1990(y)
+#'
+#' x <- c(1, 0, 3, 2)
+#' y <- c(3, 1, 4, 2)
+#' isoreg_Best_1990(x, y)
+#' @export
+PatraBound <- function (X0, Xm){
+  n_X0 <-  nrow(X0)
+  n_Xm <-  nrow(Xm)
+
+  F_X_hat <- rank_in_cpp(Xm,Xm)/n_Xm
+  ord<-order(F_X_hat)
+  F_X_hat<-F_X_hat[ord]
+  F_H0_hat <- (rank_in_cpp(X0,Xm)/n_X0)[ord]
+
+  testAlpha = function(alpha){
+    sapply(alpha,function(alpha){
+      if (alpha==0) return(NaN)
+      c_n <-  0.6792 #0.1*log(log(n_X)) #0.6792
+      F_hat <- (F_X_hat-(1-alpha)*F_H0_hat)/alpha
+      F_check <- pmin(pmax(isoreg(F_X_hat,F_hat)$yf,0),1)
+      alpha*sqrt(mean((F_hat-F_check)^2)) / (c_n/sqrt(n_X))
+    })
+  }
+  pmax(optimize(function(x)(testAlpha(x)-1)^2,c(0,1))$minimum-0.0001,0) # "Infimum"
+}
