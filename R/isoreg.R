@@ -15,7 +15,7 @@
 #' y <- c(3, 1, 4, 2)
 #' isoreg_Best_1990(x, y)
 #' @export
-isoreg_Best_1990 <- function(x, y=NULL, implementation = c("cpp","R")) {
+isoreg_Best_1990 <- function(x, y=NULL, decreasing = FALSE, implementation = c("cpp","R")) {
   implementation <- match.arg(implementation)
 
   if(doReorder <- !is.null(y)) {
@@ -23,7 +23,11 @@ isoreg_Best_1990 <- function(x, y=NULL, implementation = c("cpp","R")) {
     y <- y[ord]
   } else y <- x
 
+  if(decreasing) yf <- -yf
+
   yf <- if(implementation=="R") isoreg_Best_1990_R(y) else isoreg_Best_1990_cpp(y)
+
+  if(decreasing) yf <- -yf
 
   if(doReorder) {
     yf[ord] <- yf
