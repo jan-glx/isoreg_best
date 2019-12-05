@@ -1,30 +1,20 @@
 #include <Rcpp.h>
-#include "rih.hpp"
-
-// Enable C++11 via this plugin (Rcpp 0.10.3 or later)
-// Sys.setenv("PKG_CXXFLAGS"="-std=c++1y") #CXX1XSTD
-// Sys.setenv("CXX1XSTD"="-std=c++1y") #CXX1XSTD
-// f <- devtools::build()
-// install.packages(f, repos = NULL, type = "source")
-// devtools::check_built(f)
-// [[Rcpp::plugins(cpp11)]]
-
+#include "rih.h"
 
 using namespace Rcpp;
 
 
-//' Needs text
-//'
-//' sfg
+//' Compute rank of Q in X
 //'
 //' @importFrom Rcpp evalCpp
-//' @param X target values.
-//' @param Q target values.
-//' @return fitted values.
+//' @param X Matrix of target values
+//' @param Q Matrix of query values
+//' @param nsw integer to tune hybrid algorithm
+//' @return vector of rank of each row of Q in X
 //' @export
 // [[Rcpp::export]]
 IntegerVector
-rank_in_cpp(NumericMatrix const X, NumericMatrix const Q, long int const nsw = 400) {
+rank_in_cpp(NumericMatrix const X, NumericMatrix const Q, long int const nsw = 400L) {
   int nrow = X.nrow(), ncol = X.ncol();
   auto sX = std::vector<std::vector<double>>(nrow);
   for (int i = 0; i < nrow; i++) {

@@ -3,8 +3,8 @@
 //
 #include "../src/Best1990.h"
 #include <iostream>
-#include <c++/vector>
-#include <c++/iterator>
+#include <vector>
+#include <iterator>
 
 int main() {
     std::vector<double> in = {1,3,2,4};

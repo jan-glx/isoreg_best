@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // isoreg_Best_1990_cpp
 NumericVector isoreg_Best_1990_cpp(NumericVector y);
-RcppExport SEXP Best1990_isoreg_Best_1990_cpp(SEXP ySEXP) {
+RcppExport SEXP _Best1990_isoreg_Best_1990_cpp(SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 // rank_in_cpp
 IntegerVector rank_in_cpp(NumericMatrix const X, NumericMatrix const Q, long int const nsw);
-RcppExport SEXP Best1990_rank_in_cpp(SEXP XSEXP, SEXP QSEXP, SEXP nswSEXP) {
+RcppExport SEXP _Best1990_rank_in_cpp(SEXP XSEXP, SEXP QSEXP, SEXP nswSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,4 +28,15 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(rank_in_cpp(X, Q, nsw));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_Best1990_isoreg_Best_1990_cpp", (DL_FUNC) &_Best1990_isoreg_Best_1990_cpp, 1},
+    {"_Best1990_rank_in_cpp", (DL_FUNC) &_Best1990_rank_in_cpp, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_Best1990(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

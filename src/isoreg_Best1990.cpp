@@ -1,10 +1,4 @@
 #include <Rcpp.h>
-// Enable C++11 via this plugin (Rcpp 0.10.3 or later)
-// Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
-// f <- devtools::build()
-// install.packages(f, repos = NULL, type = "source")
-// devtools::check_built(f)
-// [[Rcpp::plugins(cpp11)]]
 
 #include "Best1990.h"
 
@@ -23,6 +17,7 @@ using namespace Rcpp;
 //' @importFrom Rcpp evalCpp
 //' @param y target values.
 //' @return fitted values.
+//' @author Jan Gleixner
 //' @examples
 //' y <- c(1, 3, 2, 4)
 //' isoreg_Best_1990_cpp(y)

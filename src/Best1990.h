@@ -5,9 +5,9 @@
 #ifndef R_BEST1990_H
 #define R_BEST1990_H
 
-#include <c++/numeric>
-#include <c++/forward_list>
-#include <c++/vector>
+#include <numeric>
+#include <forward_list>
+#include <vector>
 
 template <class T>
 T isoreg_Best1990(T y) {

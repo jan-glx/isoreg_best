@@ -1,6 +1,6 @@
 #include <vector>
-#include <c++/iostream>
-#include "../src/rih.hpp"
+#include <iostream>
+#include "../src/rih.h"
 
 
 int main () {

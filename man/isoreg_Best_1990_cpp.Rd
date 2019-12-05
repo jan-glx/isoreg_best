@@ -24,4 +24,6 @@ Best, M.J. & Chakravarti, N. Mathematical Programming (1990) 47: 425.
 y <- c(1, 3, 2, 4)
 isoreg_Best_1990_cpp(y)
 }
-
+\author{
+Jan Gleixner
+}

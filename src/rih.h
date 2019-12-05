@@ -2,12 +2,9 @@
 #define RIH_HPP
 
 #include <vector>
-
-
 #include <algorithm>
 #include <cassert>
 
-// [[Rcpp::plugins(cpp11)]]
 namespace RIH {
 
 namespace TiesMethod {

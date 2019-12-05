@@ -13,24 +13,24 @@
 #' @importFrom Rcpp evalCpp
 #' @param y target values.
 #' @return fitted values.
+#' @author Jan Gleixner
 #' @examples
 #' y <- c(1, 3, 2, 4)
 #' isoreg_Best_1990_cpp(y)
 #' @export
 isoreg_Best_1990_cpp <- function(y) {
-    .Call('Best1990_isoreg_Best_1990_cpp', PACKAGE = 'Best1990', y)
+    .Call('_Best1990_isoreg_Best_1990_cpp', PACKAGE = 'Best1990', y)
 }
 
-#' Needs text
-#'
-#' sfg
+#' Compute rank of Q in X
 #'
 #' @importFrom Rcpp evalCpp
-#' @param X target values.
-#' @param Q target values.
-#' @return fitted values.
+#' @param X Matrix of target values
+#' @param Q Matrix of query values
+#' @param nsw integer to tune hybrid algorithm
+#' @return vector of rank of each row of Q in X
 #' @export
 rank_in_cpp <- function(X, Q, nsw = 400L) {
-    .Call('Best1990_rank_in_cpp', PACKAGE = 'Best1990', X, Q, nsw)
+    .Call('_Best1990_rank_in_cpp', PACKAGE = 'Best1990', X, Q, nsw)
 }
 
