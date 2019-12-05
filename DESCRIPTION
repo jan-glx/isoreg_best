@@ -1,4 +1,4 @@
-Package: Best1990
+Package: isoregr
 Type: Package
 Title: Provides a fast c++ implementation for isotonic regression
 Version: 0.002
