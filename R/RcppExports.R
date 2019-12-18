@@ -9,7 +9,7 @@
 #' Best, M.J. & Chakravarti, N. Mathematical Programming (1990) 47: 425.
 #' \href{http://doi.org/10.1007/BF01580873}{doi:10.1007/BF01580873}
 #'
-#' @useDynLib Best1990
+#' @useDynLib isoregr
 #' @importFrom Rcpp evalCpp
 #' @param y target values.
 #' @return fitted values.
@@ -19,7 +19,7 @@
 #' isoreg_Best_1990_cpp(y)
 #' @export
 isoreg_Best_1990_cpp <- function(y) {
-    .Call('_Best1990_isoreg_Best_1990_cpp', PACKAGE = 'Best1990', y)
+    .Call('_isoregr_isoreg_Best_1990_cpp', PACKAGE = 'isoregr', y)
 }
 
 #' Compute rank of Q in X
@@ -31,6 +31,6 @@ isoreg_Best_1990_cpp <- function(y) {
 #' @return vector of rank of each row of Q in X
 #' @export
 rank_in_cpp <- function(X, Q, nsw = 400L) {
-    .Call('_Best1990_rank_in_cpp', PACKAGE = 'Best1990', X, Q, nsw)
+    .Call('_isoregr_rank_in_cpp', PACKAGE = 'isoregr', X, Q, nsw)
 }
 

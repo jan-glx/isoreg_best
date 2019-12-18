@@ -13,7 +13,7 @@ using namespace Rcpp;
 //' Best, M.J. & Chakravarti, N. Mathematical Programming (1990) 47: 425.
 //' \href{http://doi.org/10.1007/BF01580873}{doi:10.1007/BF01580873}
 //'
-//' @useDynLib Best1990
+//' @useDynLib isoregr
 //' @importFrom Rcpp evalCpp
 //' @param y target values.
 //' @return fitted values.

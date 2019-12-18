@@ -1,4 +1,4 @@
-library(Best1990)
+library(isoregr)
 context("isoreg")
 
 test_that("isoreg_Best_1990 identical to base, y only", {

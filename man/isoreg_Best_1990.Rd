@@ -4,7 +4,12 @@
 \alias{isoreg_Best_1990}
 \title{Isotonic / Monotone Regression}
 \usage{
-isoreg_Best_1990(x, y = NULL, implementation = c("cpp", "R"))
+isoreg_Best_1990(
+  x,
+  y = NULL,
+  decreasing = FALSE,
+  implementation = c("cpp", "R")
+)
 }
 \arguments{
 \item{x}{abscissa values (\code{x}) if \code{y} is supplied else target values.}
