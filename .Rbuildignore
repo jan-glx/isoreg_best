@@ -7,3 +7,4 @@
 ^src2$
 ^\.idea$
 ^CMakeLists\.txt$
+^\.github$
