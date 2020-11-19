@@ -4,6 +4,3 @@
 \name{isoregr}
 \alias{isoregr}
 \title{isoregr}
-\description{
-isoregr
-}

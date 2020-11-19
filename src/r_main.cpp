@@ -3,7 +3,6 @@
 
 using namespace Rcpp;
 
-
 //' Compute rank of Q in X
 //'
 //' @importFrom Rcpp evalCpp
@@ -32,9 +31,9 @@ rank_in_cpp(NumericMatrix const X, NumericMatrix const Q, long int const nsw = 4
       sQ[i][j]= Q(i, j);
     }
   }
-    IntegerVector ret = wrap(RIH::rank_in_hybrid(sX, sQ, nsw)); //
-    return ret;
-  }
+  IntegerVector ret = wrap(RIH::rank_in_hybrid(sX, sQ, nsw)); //
+  return ret;
+}
 
 /*** R
 rank_in_cpp(matrix(c(1L, 1L, 10L, 8L, 3L, 9L, 3L, 8L, 8L, 7L),ncol=2)+0.0,matrix(c(3,6,6,9),ncol=2)+0.0)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{isoreg_Best_1990_cpp}
 \alias{isoreg_Best_1990_cpp}
-\title{Isotonic regession after Best & Chakravarti (1990)}
+\title{Isotonic regression after Best & Chakravarti (1990)}
 \usage{
 isoreg_Best_1990_cpp(y)
 }
@@ -14,7 +14,7 @@ fitted values.
 }
 \description{
 C++ implementation of Algorithm A from Best & Chakravarti (1990).
-Performs iso tonic regression with a runtime complexity of \eqn{\mathcal{O}(n)}
+Performs isotonic regression with a run time complexity of \eqn{\mathcal{O}(n)}
 }
 \details{
 Best, M.J. & Chakravarti, N. Mathematical Programming (1990) 47: 425.

@@ -16,6 +16,8 @@ isoreg_Best_1990(
 
 \item{y}{numeric vector target values.}
 
+\item{decreasing}{logical indicating if a monotonic decreasing should be fit (instead of monotonic increasing)}
+
 \item{implementation}{a character string specifying if the fast C++ or an equivalent R implementation should be used.}
 }
 \value{

@@ -1,7 +1,7 @@
 Package: isoregr
 Type: Package
 Title: Provides a fast c++ implementation for isotonic regression
-Version: 0.002
+Version: 0.003
 Date: 2016-11-28
 Author: Jan Gleixner
 Maintainer: Jan Gleixner <jan.gleixner+cran@gmail.com>
@@ -12,5 +12,5 @@ Imports:
 LinkingTo: Rcpp
 Suggests:
     testthat
-RoxygenNote: 7.0.1
+RoxygenNote: 7.1.0
 SystemRequirements: C++11

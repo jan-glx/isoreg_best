@@ -5,10 +5,10 @@
 using namespace Rcpp;
 
 
-//' Isotonic regession after Best & Chakravarti (1990)
+//' Isotonic regression after Best & Chakravarti (1990)
 //'
 //' C++ implementation of Algorithm A from Best & Chakravarti (1990).
-//' Performs iso tonic regression with a runtime complexity of \eqn{\mathcal{O}(n)}
+//' Performs isotonic regression with a run time complexity of \eqn{\mathcal{O}(n)}
 //'
 //' Best, M.J. & Chakravarti, N. Mathematical Programming (1990) 47: 425.
 //' \href{http://doi.org/10.1007/BF01580873}{doi:10.1007/BF01580873}

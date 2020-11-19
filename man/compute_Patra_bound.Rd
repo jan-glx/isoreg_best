@@ -7,15 +7,16 @@
 compute_Patra_bound(X0, Xm)
 }
 \arguments{
-\item{X0}{Matrix of samples (rows) from 0  distribtion}
+\item{X0}{Matrix of samples (rows) from 0  distribution}
 
-\item{Xm}{Matix of samples (rows) from mixture distribtion}
+\item{Xm}{Matrix of samples (rows) from mixture distribution}
 }
 \value{
-numeric vector of fitted values (\code{yf}).
+lower bound for the mixing coefficient alpha
 }
 \description{
 Compute Patra bound
+ F_m ~ alpha F_1 + (1-alpha) F_0
 https://arxiv.org/abs/1204.5488v5
 }
 \examples{
