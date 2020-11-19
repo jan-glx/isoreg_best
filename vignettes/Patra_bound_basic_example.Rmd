@@ -1,0 +1,32 @@
+---
+title: "Patra bound - basic example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Patra bound - basic example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(isoregr)
+```
+
+```{r}
+n <- 10000
+x_0 <- rnorm(n = n)
+alpha <- 0.25 # mixing coefficient
+x_m <- rnorm(n = n, mean = sample(x = c(2, 0), size = n, replace = TRUE, prob = c(alpha, 1-alpha)))
+```
+
+```{r}
+compute_Patra_bound(X0 = x_0, Xm = x_m)
+```
+
+

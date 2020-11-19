@@ -1,0 +1,72 @@
+---
+title: "benchmark"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{benchmark}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r imports}
+library(isoregr)
+library(isotone)
+library(microbenchmark)
+library(data.table)
+library(ggplot2)
+```
+
+```{r}
+n<-10
+y=sample(n,replace=TRUE)+11:(10+n)+0.0
+x=sample(n,replace=TRUE)
+
+res <- isoreg(x,y)
+yf<-y
+yf[if(res$isOrd) 0:n else res$ord] <-res$yf
+print(yf)
+
+gpava(x,y)$x
+isoreg_Best_1990(x,y)
+
+isoreg_Best_1990(y,implementation = "R")
+isoreg_Best_1990(y)
+isoreg(y)
+
+
+
+n<-2^(2:27)
+benchOneN <- function(n){
+  x<-sample(n,replace=TRUE)
+  y<-sample(n,replace=TRUE)+0.0
+  
+  res <- microbenchmark(list=list(
+    quote(gpava(x,y)$x),
+    quote(gpava(1:n,y)$x),
+    quote(isoreg(x,y)$yf),
+    quote(isoreg(y)$yf),
+    quote(isoreg_Best_1990(x,y)),
+    quote(isoreg_Best_1990(y)))[n<=2^c(13,13,21,25,21,27)],
+    control=list(order="block"),
+    times=5,
+    unit="ms")   # conditional arg
+  dt<-data.table(res)[,n:=n]
+}
+dt <- rbindlist(lapply(n, benchOneN))
+
+ggplot(dt,aes(x=n,y=time,color=expr,group=expr))+ 
+  geom_point(alpha=0.5)+scale_y_log10()+scale_x_log10()+#stat_smooth(data=dt[n>100],method="lm",size=0.5,fill=NA)+
+  stat_smooth(size=1,method = 'loess')+
+  #stat_smooth(data=dt[n>100],method="lm",formula = y ~ offset(1*x),size=0.5,fill=NA,color="gray")#+
+  geom_abline(data=dt[,.(time=mean(time)),by=.(expr,n)][,.(lower=min(log10(time)-log10(n))),by=expr],aes(intercept = lower, slope=1))
+#geom_segment(aes(xend=n*1.99,yend=time*1.99),alpha=0.5)
+
+
+```
+

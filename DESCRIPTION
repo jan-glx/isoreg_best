@@ -11,6 +11,13 @@ Imports:
     Rcpp (>= 0.12.7)
 LinkingTo: Rcpp
 Suggests:
+    data.table,
+    ggplot2,
+    isotone,
+    knitr,
+    microbenchmark,
+    rmarkdown,
     testthat
 RoxygenNote: 7.1.0
 SystemRequirements: C++11
+VignetteBuilder: knitr
