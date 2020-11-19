@@ -1,4 +1,4 @@
 library(testthat)
-library(Best1990)
+library(isoregr)
 Sys.setenv("R_TESTS" = "")
-test_check("Best1990")
+test_check("isoregr")
