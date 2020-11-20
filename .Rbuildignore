@@ -8,3 +8,5 @@
 ^\.idea$
 ^CMakeLists\.txt$
 ^\.github$
+^cmake-build-debug$
+^CMakeLists\.txt$
