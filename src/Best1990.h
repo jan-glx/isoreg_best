@@ -17,7 +17,7 @@ typename T::value_type inline avg(T rCS, std::size_t i, std::size_t i2) {
 template <class T>
 typename T::value_type inline avgB(T rCS, std::forward_list<std::size_t>::iterator B) {                  // avgB <- function(B) avg(J[B], J[B+1])
     std::size_t i = *B;
-    std::size_t i2 = *(B++);
+    std::size_t i2 = *(std::next(B));
     return avg(rCS, i, i2);
 
 }
@@ -27,19 +27,19 @@ T isoreg_Best1990(T y) {
     const std::size_t n = y.size();                                                                      // n <- length(y)
     std::vector<typename T::value_type> rCS(n+1);                                                        //
     std::partial_sum(y.rbegin(), y.rend(), ++rCS.rbegin());                                              // rCS <- c(rev(cumsum(rev(y))), 0)
-    std::forward_list<std::size_t> J;  // current active set J                                            //
+    std::forward_list<std::size_t> J;  // current active set J                                           //
     std::forward_list<std::size_t>::iterator B_, B_1;                                                    //
     typename T::value_type avg_B0 = rCS[0]/n;  // == avg(rCS, 0 ,n) == avb(0) == av(B0)                  // B0 = 1
     J.push_front(0);                                                                                     // J <- c(1L, n+1L)
     for (std::size_t i = 1; i<n; i++) {                                                                  // for (i in seq_along(y)) {
         if ((rCS[i] /* - rCS[n] */)/(n-i) > avg_B0) { // avg(i, n) > avg                                 //     if (avg(i) > avgB(B0)) {
             B_ = J.begin();                                                                              //         J <- c(J[-(B0+1)], i, J[B0+1])
-            B_1 = J.begin()++;                                                                           //         B_ <- B0
+            B_1 = std::next(J.begin());                                                                  //         B_ <- B0
             avg_B0 = rCS[i]/(n-i);                                                                       //         B0 <- B0+1
-            while (B_1 != J.end() && avg(rCS, *B_, *B_1) < avg(rCS, i, *B_)) {                           //         while (B_ > 1 && avgB(B_) < avgB(B_-1)) {
+            while (B_1 != J.end() && avg(rCS, *B_, *B_1) >= avg(rCS, i, *B_)) {                          //         while (B_ > 1 && avgB(B_) < avgB(B_-1)) {
                 B_++; B_1++;                                                                             //             J <- J[-B_]
                 J.pop_front();                                                                           //             B_ <- B_-1
-            }                                                                                            //             B0 <- B0-1 # only because we use an array for J
+            }                                                                                            //             B0 <- B0-1
             J.push_front(i);                                                                             //         }
         }                                                                                                //     }
     }                                                                                                    // }
