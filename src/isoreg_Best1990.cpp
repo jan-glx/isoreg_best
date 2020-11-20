@@ -28,5 +28,5 @@ NumericVector isoreg_Best_1990_cpp(NumericVector y) {
 }
 
 /*** R
-isoreg_Best_1990(c(1L, 1L, 10L, 8L, 3L, 9L, 3L, 8L, 8L, 7L))
+isoreg_Best_1990(c(1L, 8L, 3L, 1L, 3L, 8L, 8L, 9L, 7L, 10L))
 */

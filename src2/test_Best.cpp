@@ -7,7 +7,7 @@
 #include <iterator>
 
 int main() {
-    std::vector<double> in = {1,3,2,4};
+    std::vector<double> in = {1, 8, 3, 1, 3, 8, 8, 9, 7, 10};
     std::vector<double> out = isoreg_Best1990(in);
     std::cout << "in" << std::endl;
     std::copy(in.begin(), in.end(), std::ostream_iterator<double>(std::cout, " "));
