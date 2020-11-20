@@ -4,3 +4,6 @@
 \name{isoregr}
 \alias{isoregr}
 \title{isoregr}
+\description{
+\code{isoregr} provides efficient implementations of efficient algorithms around isotonic regression.
+}

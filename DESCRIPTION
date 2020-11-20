@@ -18,6 +18,7 @@ Suggests:
     microbenchmark,
     rmarkdown,
     testthat
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 SystemRequirements: C++11
 VignetteBuilder: knitr
+Encoding: UTF-8
