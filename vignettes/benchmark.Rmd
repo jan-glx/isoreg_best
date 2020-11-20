@@ -41,7 +41,7 @@ isoreg(y)
 
 
 
-n<-2^(2:27)
+n<-2^(2:25)
 benchOneN <- function(n){
   x<-sample(n,replace=TRUE)
   y<-sample(n,replace=TRUE)+0.0
