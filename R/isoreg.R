@@ -61,6 +61,7 @@ isoreg_Best_1990_R <- function(y) {
     }
   }
   yf <- rep(avgB(seq_len(length(J)-1)), J[-1]-J[-length(J)])
+  yf
 }
 
 
