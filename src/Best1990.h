@@ -41,3 +41,26 @@ T isoreg_Best1990(T y) {
     return yf;                                                                                           //
 }
 #endif //R_BEST1990_H
+
+/* M.J. Best, N. Chakravarti 1990 / Active set algorithms for isotonic regression :
+ * A new O(n) primal active set algorithm In this section we describe Agorithm A, a new O(n) primal active set algorithm.
+ * The algorithm has available, at each iteration, the current active set J. The block containing n, at any iteration,
+ * will be designated B_0. B_ will denote P(B_0) and I(B_0) will denote the least integer in B_0.
+ *
+ * Algorithm A. :
+ *  Set B_0 = {1, 2,..., n}, J = {B_0}.
+ *   Compute Av(B_0) and Av(U_i) for each i \in B_0.
+ *  Go to Step 1.
+ *  Step 1:
+ *   Compute j = min{i|Av(U_i) > Av(B_0), or i = n}.
+ *   If j = n then stop with the conclusion that the optimal solution is given by x_i = Av(B) for each i \in B, for each block B of J.
+ *   Else go to Step 2.
+ *  Step 2:
+ *   Set J = J\B_0 \union {L_j, U_j}.
+ *   Set B_0 = U_j and B_=L_j.
+ *   Repeat Step 2.1 while Av(B_) < Av(P(B_)) and P(B_) \neq {}.
+ *  Step 2.1:
+ *   Compute Av(B_).
+ *   If Av(B_) \leq Av(P(B_)), set J = J\{B_, P(B_)} \union {B_ \union P(B_)} and B_ = B_ \union P(B_). Continue.
+ *   Go to Step 1.
+ */
